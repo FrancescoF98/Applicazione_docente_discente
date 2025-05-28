@@ -91,6 +91,7 @@ public class Converter {
     private void a________________________________(){}
     // --------------------------------------------------------------------------------------------------
 
+
     // Da ENTITY a DTO - lista
     public List<DiscenteDTO> discente_convert_to_dto(List<Discente> elementi_in_entrata){
 
