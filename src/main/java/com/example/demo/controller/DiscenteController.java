@@ -63,7 +63,6 @@ public class DiscenteController {
         discente.setCognome(aggiornato.getCognome());
         discente.setMatricola(aggiornato.getMatricola());
         discente.setEta(aggiornato.getEta());
-        discente.setCorsi(aggiornato.getCorsi());
 
         Discente modificato = converter.discente_convert_to_entity(discente);
 

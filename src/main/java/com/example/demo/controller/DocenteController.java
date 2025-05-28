@@ -19,8 +19,6 @@ public class DocenteController {
     @Autowired
     DocenteService docenteService;
     @Autowired
-    CorsoRepository corsoRepository;
-    @Autowired
     Converter converter;
 
     private final CustomConfig config;
@@ -83,14 +81,15 @@ public class DocenteController {
     @DeleteMapping("/{id}/delete")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
 
-        List<Corso> corsi = corsoRepository.trova_corsi_con_id_docente(id);
+//        List<Corso> corsi = corsoRepository.trova_corsi_con_id_docente(id);
+//
+//        if (corsi.isEmpty()) {
+//            docenteService.delete(id);
+//        } else{
+//            throw new RuntimeException("Impossibile eliminare il docente: ci sono corsi associati.");
+//        }
 
-        if (corsi.isEmpty()) {
-            docenteService.delete(id);
-        } else{
-            throw new RuntimeException("Impossibile eliminare il docente: ci sono corsi associati.");
-        }
-
+        docenteService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
