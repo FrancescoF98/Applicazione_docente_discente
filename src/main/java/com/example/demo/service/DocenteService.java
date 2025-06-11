@@ -15,12 +15,17 @@ public class DocenteService {
     DocenteRepository docenteRepository;
 
 
+
     public List<Docente> findAll() {
         return docenteRepository.findAll();
     }
 
     public Docente get(Long id) {
         return docenteRepository.findById(id).orElseThrow();
+    }
+
+    public Docente getByNomeAndCognome(String nome, String cognome) {
+        return docenteRepository.findByNomeAndCognome(nome, cognome);
     }
 
     public Docente save(Docente d) {

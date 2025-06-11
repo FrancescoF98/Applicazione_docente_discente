@@ -11,6 +11,10 @@ import java.util.List;
 @Repository
 public interface DocenteRepository extends JpaRepository<Docente, Long> {
 
+
+    @Query(value = "SELECT * FROM docenti WHERE nome = ?1 AND cognome = ?2", nativeQuery = true)
+    Docente findByNomeAndCognome(String nome, String cognome);
+
     @Query(value = "SELECT * FROM docenti ORDER BY nome ASC", nativeQuery = true)
     List<Docente> ordina_by_nome_asc();
 

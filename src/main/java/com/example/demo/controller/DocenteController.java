@@ -48,6 +48,37 @@ public class DocenteController {
         return ResponseEntity.ok(converter.docente_convert_to_dto(docenti));
     }
 
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Docente> getDocenteById(@PathVariable Long id) {
+//        Docente docente = docenteService.get(id);
+//        if (docente != null) {
+//            return ResponseEntity.ok(docente);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
+//    @GetMapping("/{nome}_{cognome}")
+//    public ResponseEntity<Docente> getDocenteByName(@PathVariable String nome, @PathVariable String cognome) {
+//        Docente docente = docenteService.getByNomeAndCognome(nome, cognome);
+//        if (docente != null) {
+//            return ResponseEntity.ok(docente);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Docente> getDocenteByName(@RequestParam String nome, @RequestParam String cognome) {
+        Docente docente = docenteService.getByNomeAndCognome(nome, cognome);
+        if (docente != null) {
+            return ResponseEntity.ok(docente);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
     // POST - nuovo docente
     @PostMapping("/new")
     public ResponseEntity<DocenteDTO> showAdd(@RequestBody DocenteDTO docente) {
