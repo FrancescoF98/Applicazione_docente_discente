@@ -25,7 +25,7 @@ public class Discente {
     @Column(nullable = false, unique = true)
     private Integer matricola;
 
-    @Column(nullable = false)
+    @Column
     private Integer eta;
 
     @Column

@@ -118,9 +118,7 @@ public class Converter {
 
     // Da ENTITY a DTO - singolo elemento
     public DiscenteDTO discente_convert_to_dto(Discente elementi_in_entrata){
-
         DiscenteDTO nuovo_elemento = new DiscenteDTO(elementi_in_entrata.getId(), elementi_in_entrata.getNome(), elementi_in_entrata.getCognome(), elementi_in_entrata.getMatricola(), elementi_in_entrata.getEta());
-
         return nuovo_elemento;
     }
 

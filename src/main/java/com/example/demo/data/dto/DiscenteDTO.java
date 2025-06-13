@@ -1,6 +1,7 @@
 package com.example.demo.data.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -11,14 +12,19 @@ import java.util.List;
 public class DiscenteDTO {
 
     //@JsonIgnore
+    @JsonProperty("id")
     private Long id;
 
+    @JsonProperty("nome")
     private String nome;
 
+    @JsonProperty("cognome")
     private String cognome;
 
+    @JsonProperty("matricola")
     private Integer matricola;
 
+    @JsonProperty("eta")
     private Integer eta;
 
 
@@ -32,6 +38,7 @@ public class DiscenteDTO {
         this.matricola = matricola;
         this.eta = eta;
     }
+
 
     public Long getId() {
         return id;

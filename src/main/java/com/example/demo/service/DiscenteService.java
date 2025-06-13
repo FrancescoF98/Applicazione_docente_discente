@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.data.entity.Discente;
+import com.example.demo.data.entity.Docente;
 import com.example.demo.repository.DiscenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,10 @@ public class DiscenteService {
 
     @Autowired
     DiscenteRepository discenteRepository;
+
+    public Discente getByNomeAndCognomeAndMatricola(String nome, String cognome, Integer matricola) {
+        return discenteRepository.findByNomeAndCognomeAndMatricola(nome, cognome, matricola);
+    }
 
     public List<Discente> findAll() {
         return discenteRepository.findAll();

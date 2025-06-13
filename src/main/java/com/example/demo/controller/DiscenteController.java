@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.converter.Converter;
 import com.example.demo.data.dto.DiscenteDTO;
 import com.example.demo.data.entity.Discente;
+import com.example.demo.data.entity.Docente;
 import com.example.demo.service.DiscenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,27 @@ public class DiscenteController {
         return ResponseEntity.ok(converter.discente_convert_to_dto(discenti));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DiscenteDTO> getDiscenteById(@PathVariable Long id) {
+        Discente discente = discenteService.get(id);
+        DiscenteDTO discenteDTO = converter.discente_convert_to_dto(discente);
+        if (discente != null) {
+            return ResponseEntity.ok(discenteDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<DiscenteDTO> getDiscenteByName(@RequestParam String nome, @RequestParam String cognome,  @RequestParam Integer matricola) {
+        Discente discente = discenteService.getByNomeAndCognomeAndMatricola(nome, cognome, matricola);
+        DiscenteDTO discenteDTO = converter.discente_convert_to_dto(discente);
+        if (discente != null) {
+            return ResponseEntity.ok(discenteDTO);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     // POST - nuovo
     @PostMapping("/new")
