@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/docenti")
 public class DocenteController {
